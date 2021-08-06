@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const app = express();
 const mysql = require("mysql");
+require('dotenv').config()
 
 const db = mysql.createPool({
   host: "localhost",
@@ -53,6 +54,6 @@ app.put("/api/update", (req, res) => {
   });
 });
 
-app.listen(3001, () => {
+app.listen(process.env.PORT || 3001, () => {
   console.log("running on port 3001");
 });
